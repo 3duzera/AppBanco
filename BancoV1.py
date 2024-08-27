@@ -3,12 +3,18 @@
 def deposito(saldo):
     print("--------------------Deposito--------------------")
     deposito = float(input("Digite o valor que deseja depositar: "))
-    extrato.append(f"{saldo:.2f} + {deposito:.2f} = R${(saldo + deposito):.2f}")
-    saldo += deposito
-    print(f'Deposito de {deposito:.2f}R$ efetuado com sucesso! Agora voce possui {saldo:.2f}R$ em sua conta.')
-    print("------------------------------------------------")
-    print("\n")
-    return(saldo)
+    if deposito < 0:
+        print("Erro ao realizar deposito, valor nao pode ser negativo. Tente novamente.")
+        print("------------------------------------------------")
+        print("\n")
+        return(saldo)
+    else:
+        extrato.append(f"{saldo:.2f} + {deposito:.2f} = R${(saldo + deposito):.2f}")
+        saldo += deposito
+        print(f'Deposito de {deposito:.2f}R$ efetuado com sucesso! Agora voce possui {saldo:.2f}R$ em sua conta.')
+        print("------------------------------------------------")
+        print("\n")
+        return(saldo)
     
 
 #saque#
