@@ -1,4 +1,3 @@
-
 def menu():
     menu = """\n
     ================ MENU ================
@@ -78,6 +77,9 @@ def criar_usuario(usuarios):
      endereco = input("Informe o endereço (logradouro, nro - bairro - cidade/ sigla estado): ")
 
      usuarios.append({"nome": nome, "cpf": cpf, "data_nascimento": data_nascimento, "endereco": endereco})
+     print("\n")
+     print("Usuário cadastrado com Sucesso!". center(41, " "))
+     
 
 def verificar_usuario(cpf, usuarios):
      for usuario in usuarios:
@@ -109,8 +111,8 @@ def vincular_usuario_conta(cpf, usuarios):
      for usuario in usuarios: 
           if cpf == usuario["cpf"]:
             return usuario["nome"]
-          else:
-               return None
+     return None    
+               
 
 def verificar_conta_usuario(usuario, contas):
      for conta in contas:
@@ -170,3 +172,4 @@ def main():
             print("Operação inválida, por favor selecione novamente a operação desejada.")
 
 main()
+
