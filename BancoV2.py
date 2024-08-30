@@ -57,7 +57,7 @@ def sacar(*, saldo, extrato, numero_saques, limite_saques, limite):
             print("Operação falhou! O valor informado é inválido.")
         return saldo, extrato, numero_saques
 
-def exibir_extrato(extrato, saldo):
+def exibir_extrato(saldo,/, *, extrato):
         print("\n================ EXTRATO ================")
         print("Não foram realizadas movimentações." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
@@ -100,6 +100,7 @@ def criar_conta(agencia, numero_conta, contas, usuarios):
      if conta_usuario:
         print("\n")
         print("Erro! Usuário já possui uma conta.". center(41, " "))
+        return
     
      numero_conta = len(contas) + 1
      contas.append({"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario})
@@ -152,7 +153,7 @@ def main():
             saldo, extrato, numero_saques = sacar(saldo=saldo, numero_saques=numero_saques, limite_saques=LIMITE_SAQUES, limite=limite, extrato=extrato)
 
         elif opcao == 3:
-            exibir_extrato(extrato, saldo)
+            exibir_extrato(saldo, extrato=extrato)
         
         elif opcao == 4:
              global numero_conta 
@@ -172,4 +173,3 @@ def main():
             print("Operação inválida, por favor selecione novamente a operação desejada.")
 
 main()
-
